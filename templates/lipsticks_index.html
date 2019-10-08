@@ -1,0 +1,10 @@
+<!-- templates/playlists_index.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Lipsticks</h1>
+    {% for lipstick in lipsticks %}
+        <h2>{{ lipstick.title }}</h2>
+        <small>{{ lipstick.description }}</small>
+    {% endfor %}
+{% endblock %}
