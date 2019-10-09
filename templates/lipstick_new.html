@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='POST' action='/lipsticks'>
+    <fieldset>
+    <legend>New Lipstick</legend>
+    <!-- Type -->
+    <p>
+        <label for='type'>Lipstick type:</label><br>
+        <input type='text' name='type' />
+    </p>
+
+    <!-- Color -->
+    <p>
+        <label for='color'>Lipstick color:</label><br>
+        <input type='text' name='color' />
+    </p>
+
+    <!-- Brand -->
+    <p>
+        <label for='brand'>Lipstick brand:</label><br>
+        <input type='text' name='brand' />
+    </p>
+
+    <!-- image -->
+    <p>
+        <label for='image'>URL for image:</label><br>
+        <input type='text' name='image' />
+    </p>
+    </fieldset>
+
+
+    <!-- BUTTON -->
+    <p>
+        <button type='submit'>Save into inventory</button>
+    </p>
+</form>
+{% endblock %}
