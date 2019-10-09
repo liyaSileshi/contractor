@@ -33,7 +33,7 @@ def lipstick_index():
 def lipstick_new():
     """Create new lipsticks."""
     return render_template('lipstick_new.html')
-
+            
 @app.route('/lipsticks', methods=['POST'])
 def lipsticks_submit():
     """Submit a new lipstick."""
@@ -43,8 +43,16 @@ def lipsticks_submit():
         'brand': request.form.get('brand'),
         'image': request.form.get('image')
     }
+    lipstick_id = lipsticks.insert_one(lipstick).inserted_id
+    #lipsticks.insert_one(lipstick)
     # print(request.form.to_dict())
-    return redirect(url_for('lipstick_index'))
+    return redirect(url_for('lipstick_show', lipstick_id = lipstick_id))
+
+@app.route('/lipsticks/<lipstick_id>')
+def lipstick_show(lipstick_id):
+    """Show a single lipstick."""
+    lipstick = lipsticks.find_one({'_id' : ObjectId(lipstick_id)})
+    return render_template('lipstick_show.html', lipstick= lipstick)
 
 
 if __name__ == '__main__':
