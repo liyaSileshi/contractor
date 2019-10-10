@@ -8,15 +8,24 @@
   </div>
     <!-- <h1 class="text-center">My Lipsticks Inventory</h1> -->
     <!-- <a href='/lipsticks/new'>New Lipstick</a> -->
+    <div class='row'>
+            
     {% for lipstick in lipsticks %}
-        
+    <div class="card">
+            <div class='col-md-3'>
+            <div class="card-body">
+    
         <!-- <h2>{{ lipstick.brand}}</h2> -->
         <!-- <small>{{lipstick.brand}} </small> -->
         <a href='/lipsticks/{{ lipstick._id }}'>
             <small><img src = "{{ lipstick.image }}" height="150" width="150"></small>
             
         </a>
+    </div>
+</div>
+</div>
     {% endfor %}
-    
+</div>
+
 {% endblock %}
 
