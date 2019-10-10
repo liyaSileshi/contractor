@@ -21,7 +21,7 @@ def lipstick_index():
 @app.route('/lipsticks/new')
 def lipstick_new():
     """Create new lipsticks."""
-    return render_template('lipstick_new.html')
+    return render_template('lipstick_new.html', lipstick = {}, title = 'New Lipstick')
             
 @app.route('/lipsticks', methods=['POST'])
 def lipsticks_submit():
@@ -48,7 +48,7 @@ def lipstick_show(lipstick_id):
 def lipstick_edit(lipstick_id):
     """Show the edit form for a lipstick."""
     lipstick = lipsticks.find_one({'_id': ObjectId(lipstick_id)})
-    return render_template('lipstick_edit.html', lipstick=lipstick)
+    return render_template('lipstick_edit.html', lipstick=lipstick, tilte = 'Edit Lipstick')
 
 @app.route('/lipsticks/<lipstick_id>', methods=['POST'])
 def lipsticks_update(lipstick_id):

@@ -3,52 +3,7 @@
 
 {% block content %}
 <form method='POST' action='/lipsticks/{{lipstick._id}}' >
-    <fieldset>
-        <legend>Edit Lipstick inventory</legend>
-        
-        <!-- Type -->
-        <p>
-            <label for='type'>Lipstick type:</label><br>
-            <input type='text' name='type' value='{{ lipstick.type }}'/>
-        </p>
-    
-        <!-- Color -->
-        <p>
-            <label for='color'>Lipstick color:</label><br>
-            <input type='text' name='color' value='{{ lipstick.color }}'/>
-        </p>
-    
-        <!-- Brand -->
-        <p>
-            <label for='brand'>Lipstick brand:</label><br>
-            <input type='text' name='brand' value='{{ lipstick.brand }}'/>
-        </p>
-    
-        <!-- image -->
-        <p>
-            <label for='image'>URL for image:</label><br>
-            <input type='text' name='image' value='{{ lipstick.image }}'/>
-        </p>
-    
-        <!-- Price -->
-        <p>
-            <label for='price'>price:</label><br>
-            <input type="number" name="price" value='{{ lipstick.price }}'/>
-        </p>
-
-
-
-        
-
-       
-        
-    </fieldset>
-
-    <!-- BUTTON -->
-    <p>
-        <button type='submit'>Save Changes</button>
-        
-    </p>
+      {% include 'partials/lipstick_form.html' %}
 </form>
 <form action="/">
     <input type="submit" value="Cancel" />
