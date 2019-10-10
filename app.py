@@ -41,7 +41,8 @@ def lipsticks_submit():
         'type': request.form.get('type'),
         'color': request.form.get('color'),
         'brand': request.form.get('brand'),
-        'image': request.form.get('image')
+        'image': request.form.get('image'),
+        'price': request.form.get('price')
     }
     lipstick_id = lipsticks.insert_one(lipstick).inserted_id
     #lipsticks.insert_one(lipstick)
@@ -53,6 +54,27 @@ def lipstick_show(lipstick_id):
     """Show a single lipstick."""
     lipstick = lipsticks.find_one({'_id' : ObjectId(lipstick_id)})
     return render_template('lipstick_show.html', lipstick= lipstick)
+
+@app.route('/lipsticks/<lipstick_id>/edit')
+def lipstick_edit(lipstick_id):
+    """Show the edit form for a lipstick."""
+    lipstick = lipsticks.find_one({'_id': ObjectId(lipstick_id)})
+    return render_template('lipstick_edit.html', lipstick=lipstick)
+
+@app.route('/lipsticks/<lipstick_id>', methods=['POST'])
+def lipsticks_update(lipstick_id):
+    """Submit an edited lipstick."""
+    updated_lipstick = {
+         'type': request.form.get('type'),
+        'color': request.form.get('color'),
+        'brand': request.form.get('brand'),
+        'image': request.form.get('image'),
+        'price': request.form.get('price')
+    }
+    lipsticks.update_one(
+        {'_id': ObjectId(lipstick_id)},
+        {'$set': updated_lipstick})
+    return redirect(url_for('lipstick_show', lipstick_id=lipstick_id))
 
 
 if __name__ == '__main__':
