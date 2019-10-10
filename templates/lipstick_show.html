@@ -7,11 +7,16 @@
 <h3>Cost: ${{ lipstick.price }}</h3>
 <h3>Amount: {{ lipstick.amount }}</h3>
 <img src = "{{ lipstick.image }}" height="150" width="150">
-<a href='/lipsticks/{{ lipstick._id }}/edit'>Update </a>
+<button type='submit'><a href='/lipsticks/{{ lipstick._id }}/edit'>Update </a></button>
 
+<!-- update button
+<p><form method='POST' action='/lipsticks/{{ lipstick._id }}/edit'>
+    <button type='submit'>Edit</button>
+</form></p> -->
 <!-- Delete button -->
 <p><form method='POST' action='/lipsticks/{{ lipstick._id }}/delete'>
     <button type='submit'>Delete</button>
 </form></p>
+
 
 {% endblock %}

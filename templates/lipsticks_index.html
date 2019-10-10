@@ -2,7 +2,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class="text-center">Lipsticks</h1>
+<div class="jumbotron text-center" style="margin-bottom:0">
+    <h1>My Lipstick Inventory</h1>
+    <!-- <p>Resize this responsive page to see the effect!</p>  -->
+  </div>
+    <!-- <h1 class="text-center">My Lipsticks Inventory</h1> -->
     <!-- <a href='/lipsticks/new'>New Lipstick</a> -->
     {% for lipstick in lipsticks %}
         
@@ -13,4 +17,6 @@
             
         </a>
     {% endfor %}
+    
 {% endblock %}
+
