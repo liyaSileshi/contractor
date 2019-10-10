@@ -10,14 +10,16 @@ sample_lipstick = {
         'color': 'Pink',
         'brand': 'Victoria Secret',
         'image': 'https://images-na.ssl-images-amazon.com/images/I/51KCeM7alXL._SL1013_.jpg',
-        'price': '55'
+        'price': '55',
+        'amount': '4'
 }
 sample_form_data = {
     'type': sample_lipstick['type'],
     'color': sample_lipstick['color'],
     'brand': sample_lipstick['brand'],
     'image':sample_lipstick['image'],
-    'price':sample_lipstick['price']
+    'price':sample_lipstick['price'],
+    'amount': sample_lipstick['amount']
 }
 
 class PlaylistsTests(TestCase):

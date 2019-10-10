@@ -31,7 +31,8 @@ def lipsticks_submit():
         'color': request.form.get('color'),
         'brand': request.form.get('brand'),
         'image': request.form.get('image'),
-        'price': request.form.get('price')
+        'price': request.form.get('price'),
+        'amount': request.form.get('amount')
     }
     lipstick_id = lipsticks.insert_one(lipstick).inserted_id
     #lipsticks.insert_one(lipstick)
@@ -58,7 +59,8 @@ def lipsticks_update(lipstick_id):
         'color': request.form.get('color'),
         'brand': request.form.get('brand'),
         'image': request.form.get('image'),
-        'price': request.form.get('price')
+        'price': request.form.get('price'),
+        'amount': request.form.get('amount')
     }
     lipsticks.update_one(
         {'_id': ObjectId(lipstick_id)},

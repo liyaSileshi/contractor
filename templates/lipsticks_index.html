@@ -2,11 +2,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Lipsticks</h1>
-    <a href='/lipsticks/new'>New Lipstick</a>
+    <h1 class="text-center">Lipsticks</h1>
+    <!-- <a href='/lipsticks/new'>New Lipstick</a> -->
     {% for lipstick in lipsticks %}
         
-        <h2>{{ lipstick.brand}}</h2>
+        <!-- <h2>{{ lipstick.brand}}</h2> -->
         <!-- <small>{{lipstick.brand}} </small> -->
         <a href='/lipsticks/{{ lipstick._id }}'>
             <small><img src = "{{ lipstick.image }}" height="150" width="150"></small>

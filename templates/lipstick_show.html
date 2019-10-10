@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<a href='/'>Back to Home</a>
-<h1>{{ lipstick.type }}</h1>
-<h2>{{ lipstick.color }}</h2>
-<h2>{{ lipstick.brand }}</h2>
-<h2>{{ lipstick.price }}</h2>
+<!-- <a href='/'>Back to Home</a> -->
+<h3>Type: {{ lipstick.type }}</h3>
+<h3>Color: {{ lipstick.color }}</h3>
+<h3>Brand: {{ lipstick.brand }}</h3>
+<h3>Cost: ${{ lipstick.price }}</h3>
+<h3>Amount: {{ lipstick.amount }}</h3>
 <img src = "{{ lipstick.image }}" height="150" width="150">
 <a href='/lipsticks/{{ lipstick._id }}/edit'>Update </a>
 
