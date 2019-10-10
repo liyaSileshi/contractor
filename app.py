@@ -13,17 +13,6 @@ lipsticks = db.lipsticks
 app = Flask(__name__)
 
 
-# lipstick = [
-#  { 'title': 'red', 'description': 'matte' },
-#     { 'title': 'pink', 'description': 'gloss' }
-# ]
-
-#lipsticks.insert_many(lipstick)
-# lipsticks.delete_many
-
-#deleting from the document
-#ipsticks.delete_many({'title':'red'})
-
 @app.route('/')
 def lipstick_index():
     """Show all lipsticks."""
@@ -75,6 +64,12 @@ def lipsticks_update(lipstick_id):
         {'_id': ObjectId(lipstick_id)},
         {'$set': updated_lipstick})
     return redirect(url_for('lipstick_show', lipstick_id=lipstick_id))
+
+@app.route('/lipsticks/<lipstick_id>/delete', methods=['POST'])
+def playlists_delete(lipstick_id):
+    """Delete one lipstick."""
+    lipsticks.delete_one({'_id': ObjectId(lipstick_id)})
+    return redirect(url_for('lipstick_index'))
 
 
 if __name__ == '__main__':

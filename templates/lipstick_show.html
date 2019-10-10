@@ -8,4 +8,9 @@
 <img src = "{{ lipstick.image }}" height="150" width="150">
 <a href='/lipsticks/{{ lipstick._id }}/edit'>Update </a>
 
+<!-- Delete button -->
+<p><form method='POST' action='/lipsticks/{{ lipstick._id }}/delete'>
+    <button type='submit'>Delete</button>
+</form></p>
+
 {% endblock %}
